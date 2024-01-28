@@ -1,0 +1,28 @@
+<% include ./partials/header.ejs %>
+
+
+
+
+<div class="w-full h-screen  flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1704369671954-88ffd3b8bfa9?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover">
+<div class="w-[28%] h-80vh] bg-white px-20 py-5 rounded-md">
+  <div class="w-[60px] h-[60px] mb-3  ml-[40%] rounded-full "> <img src="https://static.vecteezy.com/system/resources/previews/023/986/660/original/pinterest-logo-pinterest-logo-transparent-pinterest-icon-transparent-free-free-png.png" alt=""></div>
+  <h1 class="text-2xl leading-none tracking-tighter text-transform: capitalize text-center font-semibold text-zinc-700 ">create new account.</h1>
+  <form action="/register" method="post">
+    <input   class=" border-2  rounded-md      mt-2  block w-full   px-2 py-3  "  type="text" name="username" placeholder="Username" >
+    <input class="   border-2 rounded-md      mt-2  block w-full   px-2 py-3  "    type="text " name="name" placeholder="Name" >
+    <input   class=" border-2  rounded-md      mt-2  block w-full   px-2 py-3  "  type="email" name="email" placeholder="Email" >
+    <input class="   border-2 rounded-md      mt-2  block w-full   px-2 py-3  "    type="password " name="password" placeholder="Password" >
+   
+  
+  
+    <input  class="  border-2 rounded-md  mt-4  block w-full px-2 py-3 bg-red-600 rounded-full  text-white "   type="submit" value="Create New Account"  >
+
+
+  </form>
+  <p class="mt-2 text-zinc-700 px-2 py-2 text-bold">By continuing, you agree to Pinterest's Terms of Service, Privacy policy.</p>
+  <a href="/" class=" inline px-10 py-5 mt-2 text-zinc-400 text-semibold capitalize ">login if exists account ?</a>
+
+</div>
+</div>
+
+<% include ./partials/footer.ejs %>

@@ -1,0 +1,98 @@
+<% include ./partials/header.ejs %>
+
+<div class="w-full h-[10%]  flex items-center justify-evenly">
+    <div class="w-[50px] h-[50px]  rounded-full  ml-[-1%]"> <img src="https://static.vecteezy.com/system/resources/previews/023/986/660/original/pinterest-logo-pinterest-logo-transparent-pinterest-icon-transparent-free-free-png.png" alt=""></div>
+    <div >
+        <a class="ml-[50px] capitalize font-normal text-xl "   href="/profile">home</a>
+        <a class="ml-[50px] capitalize font-normal text-xl "   href="/feed">explore</a>
+        <a class="ml-[50px] capitalize font-normal text-xl "   href="/add">create</a> 
+    </div> 
+    <div class="relative">   <input type="text" placeholder="sreach" class="w-[600px] text-xl px-[20px] py-[10px] rounded-full bg-zinc-300 border-sky" ><i class="ri-search-2-fill absolute top-[10px] right-[20px] text-xl"></i></div>
+    <div class=" roy flex items-center " >        
+        <i class="ri-notification-4-line text-xl ml-[17px] "></i>
+        <i class="ri-message-2-line text-xl ml-[19px]"></i>
+        <a  href="/profile"  class=" relative w-[40px] h-[40px] rounded-full  bg-zinc-700 overflow-hidden ml-[20px]  z-0 ">      <img  class="w-full h-full object-cover " src="/images/uploads/<%=user.profileimg%>" alt=""></a>
+    </div>
+    <a href="/logout" class=" px-10 py-2 bg-red-600 rounded-full font-bold text-white capitalize cursor-pointer">Log out</a>
+
+</div> 
+
+<div class="relative  ">
+    <div class="fixed w-full bg-white">
+        <h1 class="font-bold text-4xl mt-5 capitalize ml-3  ">create post<i class="ri-arrow-right-double-fill"></i></h1>
+        <hr class="mt-2">
+    </div>
+</div>
+    <!-- textcontent -->
+    
+        <div class="flex items-center justify-evenly" >
+
+
+            <div class=""  >
+                <div  id="icon" class=" relative w-[400px] h-[400px]  mt-[150px]  py-[160px] text-xl border-2 border-zinc-500  border-dashed rounded-lg "> 
+                 <div class="flex items-center justify-center opacity-80 ">      <i  class=" ri-file-download-line"></i></div>
+               <div class="flex items-center justify-center opacity-80 "><h1>choose the file
+                <img  class="absolute top-0 left-0 w-full h-full object-cover " src="/images/uploads/<%= user.post.img %> " alt="">
+               </h1></div>
+                </div>
+            </div>
+
+
+          <div>
+            <form class="font-bold " id="form"  class="mt-[80px]" action="/createpost" method="post" enctype="multipart/form-data">
+                <input  class="opacity-0"   type="file" name="postimage">
+                <h1 class="mt-[100px] ml-3">Title</h1>
+                <input type="text" name="text" placeholder="Tilte" class="w-[400px] h-[50px] rounded-full px-5 border-2 border-zinc-700 border-dashed"  >
+                <h1 class="mt-2 ml-3">Discription</h1>
+              <textarea name="discription" placeholder='Discription' id="" cols="30" rows="10" class="w-[400px]  rounded-lg px-5 py-2 mt-1 border-2 border-zinc-700 border-dashed font-light " ></textarea>
+                  <input id="hello2" type="submit" class=" w-[90px] h-[50px] rounded-full ml-[30%] mt-1 bg-red-400 px-3 py-3">
+      
+              
+            </form>
+          </div>
+          
+        
+         
+        </div>
+       
+        
+
+
+
+
+
+ <script>
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var uploadIcon = document.querySelector('#icon');
+
+        if (uploadIcon) {
+            uploadIcon.addEventListener('click', function () {
+                document.querySelector('#form input').click();
+            });
+        } else {
+            console.error('Element with ID "uploadicon" not found.');
+        }
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        var uploadIcon = document.querySelector('#hello2');
+
+        if (uploadIcon) {
+            uploadIcon.addEventListener('click', function () {
+                document.querySelector('#form input[type="submit"]').click();
+            });
+        } else {
+            console.error('Element with ID "uploadicon" not found.');
+        }
+    });
+
+ </script>
+
+
+
+
+
+
+
+<% include ./partials/footer.ejs %>

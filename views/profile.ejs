@@ -1,0 +1,99 @@
+<% include ./partials/header.ejs %>
+<div class="w-full h-[10%]  flex items-center justify-evenly">
+    <div class="w-[50px] h-[50px]  rounded-full  ml-[-1%]"> <img src="https://static.vecteezy.com/system/resources/previews/023/986/660/original/pinterest-logo-pinterest-logo-transparent-pinterest-icon-transparent-free-free-png.png" alt=""></div>
+    <div >
+        <a class="ml-[50px] capitalize font-normal text-xl "   href="/profile">home</a>
+        <a class="ml-[50px] capitalize font-normal text-xl "   href="/feed">explore</a>
+        <a class="ml-[50px] capitalize font-normal text-xl "   href="/add">create</a> 
+    </div> 
+    <div class="relative">   <input type="text" placeholder="sreach" class="w-[600px] text-xl px-[20px] py-[10px] rounded-full bg-zinc-300 border-sky" ><i class="ri-search-2-fill absolute top-[10px] right-[20px] text-xl"></i></div>
+    <div class=" roy flex items-center " >        
+        <i class="ri-notification-4-line text-xl ml-[17px] "></i>
+        <i class="ri-message-2-line text-xl ml-[19px]"></i>
+        <a  href="/profile"  class=" relative w-[40px] h-[40px] rounded-full  bg-zinc-700 overflow-hidden ml-[20px]  z-0 ">      <img  class="w-full h-full object-cover " src="/images/uploads/<%=user.profileimg%>" alt=""></a>
+    </div>
+    <a href="/logout" class=" px-10 py-2 bg-red-600 rounded-full font-bold text-white capitalize cursor-pointer">Log out</a>
+
+   
+
+
+   
+
+</div> 
+
+
+<div class=" profile flex flex-col items-center justify-center">
+
+  
+    
+
+    <div class="relative">
+        <form id="uploadform" hidden action="/fileupload" method="post" enctype="multipart/form-data">
+            <input type="file" name="image">
+        </form>
+        
+        <span id="uploadicon" class="absolute w-8 h-8 bottom-0 right-3 flex bg-zinc-700 rounded-full justify-center items-center z-10"><i class="ri-pencil-line text-white"></i></span>
+        
+        <div class=" relative w-[150px] h-[150px]  rounded-full  bg-zinc-700 overflow-hidden  z-0 mt-12">      <img  class="w-full h-full object-cover " src="/images/uploads/<%=user.profileimg%>" alt=""></div>
+
+    </div>
+   
+    <h1 class="text-2xl font-bold  "><%=user.name %></h1>
+    <h3 class="text-medium">@<%=user.username%></h3>
+    <a href="/edit" class="px-7 text-xs font-bold py-2 bg-zinc-700 mt-3 text-white rounded-full">edit </a>
+    <a href="/add" class="px-10 py-2 bg-red-700 mt-2 text-white rounded-lg font-bold capitalize">Add Post</a>
+</div>
+
+<div class="cards flex flex-wrap gap-10 px-20 mt-10">
+    <div class="cards">
+        <div class="w-48 h-36 rounded-lg overflow-hidden ">
+       <div class="w-[100%] h-[100%] object-fill"><img src="images/uploads/<%= user?.post[0]?.img %>" alt=""></div>
+        </div>
+        <a href="/upload" class="inline-block font-xl font-semibold mt-2 capitalize ml-1 "> your uploaded pins</a>
+        <h5 class="text-s font-medium mb-2  ml-1 opacity-80"><%=user.post.length %>  pin</h5>
+    </div>
+    
+
+</div>
+
+
+
+
+
+ 
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var uploadIcon = document.querySelector('#uploadicon');
+        
+                if (uploadIcon) {
+                    uploadIcon.addEventListener('click', function () {
+                        document.querySelector('#uploadform input').click();
+                    });
+                } else {
+                    console.error('Element with ID "uploadicon" not found.');
+                }
+            });
+
+
+     
+            document.addEventListener('DOMContentLoaded', function () {
+                var fileInput = document.querySelector('#uploadform input');
+        
+                if (fileInput) {
+                    fileInput.addEventListener('change', function () {
+                        document.querySelector('#uploadform').submit();
+                    });
+                } else {
+                    console.error('File input not found.');
+                }
+            });
+        </script>
+        
+        
+  
+    
+
+
+
+
+<% include ./partials/footer.ejs %>

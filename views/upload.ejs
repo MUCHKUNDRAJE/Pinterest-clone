@@ -1,0 +1,44 @@
+<% include ./partials/header.ejs %>
+<div class="w-full h-[10%]  flex items-center justify-evenly">
+    <div class="w-[50px] h-[50px]  rounded-full  ml-[-1%]"> <img src="https://static.vecteezy.com/system/resources/previews/023/986/660/original/pinterest-logo-pinterest-logo-transparent-pinterest-icon-transparent-free-free-png.png" alt=""></div>
+    <div >
+        <a class="ml-[50px] capitalize font-normal text-xl "   href="/profile">home</a>
+        <a class="ml-[50px] capitalize font-normal text-xl "   href="/feed">explore</a>
+        <a class="ml-[50px] capitalize font-normal text-xl "   href="/add">create</a> 
+    </div> 
+    <div class="relative">   <input type="text" placeholder="sreach" class="w-[600px] text-xl px-[20px] py-[10px] rounded-full bg-zinc-300 border-sky" ><i class="ri-search-2-fill absolute top-[10px] right-[20px] text-xl"></i></div>
+    <div class=" roy flex items-center " >        
+        <i class="ri-notification-4-line text-xl ml-[17px] "></i>
+        <i class="ri-message-2-line text-xl ml-[19px]"></i>
+        <a  href="/profile"  class=" relative w-[40px] h-[40px] rounded-full  bg-zinc-700 overflow-hidden ml-[20px]  z-0 ">      <img  class="w-full h-full object-cover " src="/images/uploads/<%=user.profileimg%>" alt=""></a>
+    </div>
+    <a href="/logout" class=" px-10 py-2 bg-red-600 rounded-full font-bold text-white capitalize cursor-pointer">Log out</a>
+</div> 
+
+<div class="w-full min-h-screen px-[80px] py-12">
+    <h1 class="font-bold text-4xl capitalize mb-4 mt-[-2%]"> your uploaded pins<i class="ri-arrow-right-double-fill"></i></h1>
+    <hr>
+
+    <div class="flex flex-wrap gap-16">
+        <% user.post.forEach(function(elem){ %>
+           <div>
+            <div class=" rox  flex w-[40vh] h-[60vh] bg-zinc-200 overflow-hidden rounded-lg">
+                <img class=" transition-all   w-full h-full object-cover" src="images/uploads/<%= elem.img %>" alt="">
+            </div>
+        
+            <h1 class="capitalize font-bold opacity-70 ml-1 text-s"><%= elem.title %></h1>
+          
+           </div>
+      
+
+        <% }) %>
+    </div>
+</div>
+
+
+
+
+
+
+
+<% include ./partials/footer.ejs %>

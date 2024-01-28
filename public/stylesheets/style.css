@@ -1,0 +1,24 @@
+*{
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: gilroy;
+}html,body{
+  height: 100%;
+  width: 100%;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.roy i:hover {
+ background-color: skyblue;
+ width: 20px;
+ height: 20px;
+}
+
+.rox img:hover{
+ transform: scale(1.2);
+}
